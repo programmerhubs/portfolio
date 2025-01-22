@@ -1,0 +1,20 @@
+<div class="experience-timeline">
+    <h2>Experiences</h2>
+    <div class="timeline-item" *ngFor="let item of experiences">
+      <div class="timeline-content">
+        <h3>{{ item.title }}</h3>
+        <p class="company">{{ item.company }}</p>
+        <p class="period">{{ item.period }}</p>
+        <button class="details-button" (click)="toggleDetails(item)">
+          {{ item.showDetails ? 'Hide Details' : 'Show Details' }}
+        </button>
+        <div *ngIf="item.showDetails" class="details-section">
+          <p *ngFor="let mission of item.missions" class="mission">
+            <strong>Mission {{ experiences.indexOf(item) + 1 }}:</strong> {{ mission }}
+          </p>
+          <p><strong>Technologies:</strong> {{ item.technologies }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
